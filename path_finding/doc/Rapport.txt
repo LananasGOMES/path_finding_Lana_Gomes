@@ -1,0 +1,28 @@
+Projet d'informatique scientifique
+Gomes Lana 681C
+
+1ère instance situation3.map D = (9,14), A = (3,3)
+Algorithm   Distance        Number of states evaluated  CPUtime
+BFS         19              191                         0.016356945037841797
+Dijkstra    19              192                         0.014200925827026367
+A*          19              44                          0.008007049560546875
+Glouton     19              21                          0.009851932525634766
+
+2ième instance situation2.map D = (9,7), A = (7,7)
+Algorithm   Distance        Number of states evaluated  CPUtime
+BFS         12              19                          0.012382030487060547
+Dijkstra    6               43                          0.013167142868041992
+A*          6               24                          0.01385498046875
+Glouton     12              8                           0.00985097885131836
+
+3ième instance arena.map D = (9,12), A = (35,35)
+Algorithm   Distance        Number of states evaluated  CPUtime
+BFS         51              1734                        0.07981705665588379
+Dijkstra    51              1757                        0.11329197883605957
+A*          51              740                         0.08288908004760742
+Glouton     51              53                          0.04734611511230469
+
+On remarque que BFS et glouton ne trouvent pas toujours la meilleure distance, 
+et ce à cause de leurs non-prise en compte des couts des cases lors de leurs calculs.
+On voit en revanche que A* et Glouton explore beaucoup moins de cases en moyenne, 
+et sont donc en généralk plus rapide
