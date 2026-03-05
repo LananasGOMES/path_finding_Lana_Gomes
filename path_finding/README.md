@@ -34,7 +34,7 @@ D et A sont des coordonées en 2D entières compris entre 0 et b le nombre le pl
 Il est autorisé de démarrer sur un mur (ou arbre) mais en revanche il n'est pas autorisé d'arriver sur un mur (ou arbre) à moins qu'il s'agissent du départ
 
 Exemple complet :
-*algoBFS("Didatic_0.map", (2,11), (1,8))
+* algoBFS("Didatic_0.map", (2,11), (1,8))
 
 # Remarque
 Vous pouvez vous même créer vos fichier .map dans le dossier data veillez à ce que la forme indiqué soit bien respecté :
