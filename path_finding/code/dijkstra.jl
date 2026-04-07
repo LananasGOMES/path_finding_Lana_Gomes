@@ -2,6 +2,8 @@
     Ecrit par Lana GOMES
 =# 
 
+# Permet d'utiliser la structure de file
+using DataStructures
 # Permet d'accéder à toutes les méthodes communes aux recherches du plus court chemin 
 include("manip.jl")
 
@@ -23,7 +25,7 @@ function parcours_dij(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int
     # Permet de compter le nombre de cases analysées 
     nb_dij = 0
     # Adaptation où L ne stocke que les non permanant 
-    L_n_perm::Vector{Tuple{Int64,Int64}} = []
+    L_n_perm::PriorityQueue{Tuple{Int64,Int64}, Int64} = PriorityQueue{Tuple{Int64,Int64}, Int64}() 
     # Matrice indiquant la distance de la case (i,j) par rapport au départ 
     distance::Matrix{Int64} = Matrix{Int64}(undef,size(map))
     #  Matrice indiquant d'où la case (i,j) a été atteinte avec la meilleure distance
@@ -41,15 +43,14 @@ function parcours_dij(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int
             
         else 
            permanant[i,j] = true
-        end
-        push!(L_n_perm,(i,j)) 
+        end 
     end
     distance[dep[1],dep[2]] = 0
+    enqueue!(L_n_perm, dep, distance[dep[1],dep[2]])
     
-    while size(L_n_perm,1) != 0
-        u = plus_proche_sommet_non_permanant_L(map, L_n_perm, distance) 
+    while !(isempty(L_n_perm))
+        u = dequeue!(L_n_perm) 
         permanant[u[1], u[2]] = true 
-        L_n_perm = enlever(L_n_perm, u)
         nb_dij = nb_dij + 1
         # Si c'est l'arrrivée on retourne ce qu'on a besoin
         if u == arr
@@ -70,6 +71,7 @@ function parcours_dij(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int
             # Si la distance a été mis à jour, on change aussi d'où l'on vient 
             if distance[v[1], v[2]] != distance_avant
                 cameFrom[v[1], v[2]] = u
+                enqueue!(L_n_perm, v, distance[v[1],v[2]])
             end
         end
     end
@@ -102,7 +104,7 @@ function succ_non_permanant_L(map::Matrix{Char}, permanant::Matrix{Bool}, u::Tup
     return res
 end
 
-#   Fonction cherchant le plus proche sommet du départ non permanant
+#=   Fonction cherchant le plus proche sommet du départ non permanant
 function plus_proche_sommet_non_permanant_L(map::Matrix{Char}, L_n_perm::Vector{Tuple{Int64,Int64}}, distance::Matrix{Int64})
     min = L_n_perm[1] 
     for u in L_n_perm 
@@ -125,7 +127,7 @@ function enlever(L_n_perm::Vector{Tuple{Int64,Int64}}, u::Tuple{Int64,Int64})
         deleteat!(L_n_perm, i)
     end
     return L_n_perm
-end
+end=#
 
 # Fonction permettant d'afficher la matrice cameFrom pour des vérifications et tests
 function aff_cameFrom(t::Matrix{Tuple{Int64,Int64}})

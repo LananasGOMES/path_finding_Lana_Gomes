@@ -1,6 +1,5 @@
 # Path_Finding
- Recherche du plus cours chemin dans le cadre du cours de Xavier Gandibleu 
- Projet d'informatique scientifique par Lana Gomes.
+ Recherche du plus cours chemin dans le cadre du cours de Xavier Grandibleu Projet d'informatique scientifique par Lana Gomes.
 
 # Organisation
 Dans ce dossier se trouve :

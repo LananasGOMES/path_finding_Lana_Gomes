@@ -39,7 +39,7 @@ function parcours_BFS(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int
     i = 1 # valeur à placer dans marque qui indiquera i - 1 étape par rapprot au départ
     while !(isempty(F))
         u = first(F) 
-        u = dequeue!(F)
+        dequeue!(F)
         # Si on ne l'a pas  dejà vu on augmente le nombre de cases croisée
         if marque[u[1], u[2]] == 0
             nb_bfs = nb_bfs + 1

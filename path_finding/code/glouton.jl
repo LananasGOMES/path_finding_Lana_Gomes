@@ -13,7 +13,7 @@ function algo_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int
 end
 
 #=  Fonction implémentant une fonction très proche de la vidéo mise en ligne sur madoc adapté au fonctionnement glouton
-    https://www.youtube.com/watch?v=aKYlikFAV4k 
+    https://www.youtube.com/watch?v=aKYlikFAV4k =#
 function parcours_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int64,Int64})
     # Permet de compter le nombre de cases analysées
     nb_glouton = 0
@@ -70,7 +70,7 @@ function parcours_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple
             end
         end
     end
-end  =#
+end 
 
 function parcours_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int64,Int64})
     # Permet de compter le nombre de cases analysées
@@ -133,7 +133,7 @@ end
 #= Fonction permettant de retracer l'un des trajets possibles à partir d'une matrice cameFrom
      et calcule la distance du trajet 
 =# 
-function chemin_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int64,Int64}, cameFrom)::Matrix{Tuple{Int64,Int64}}
+function chemin_glouton(map::Matrix{Char}, dep::Tuple{Int64,Int64}, arr::Tuple{Int64,Int64}, cameFrom)
     trajet::Vector{Tuple{Int64,Int64}}  = [arr] 
     dist = cout(map,arr) 
     u = cameFrom[arr[1], arr[2]]
