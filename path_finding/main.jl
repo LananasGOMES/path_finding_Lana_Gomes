@@ -12,7 +12,7 @@ include("code/visualisation.jl")
 # Fonction résolvant le problème avec la méthode BFS
 function algoBFS(fname::String, D::Tuple{Int64,Int64}, A::Tuple{Int64,Int64})
     t = time()
-    map = parseFichier("data/" * fname)
+    map = parseFichierMap("data/" * fname)
     ((trajet, dist), nb_bfs) = algo_BFS(map,D, A)
     
     println("Starting situation :")
@@ -33,7 +33,7 @@ end
 # Fonction résolvant le problème avec la méthode Dijkstra
 function algoDijkstra(fname::String, D::Tuple{Int64,Int64}, A::Tuple{Int64,Int64})
     t = time()
-    map = parseFichier("data/" * fname)
+    map = parseFichierMap("data/" * fname)
     ((trajet, dist), nb_dij) = algo_dij(map,D,A)
     
     println("Starting situation :")
@@ -54,7 +54,7 @@ end
 # Fonction résolvant le problème avec la méthode A*
 function algoAStar(fname::String, D::Tuple{Int64,Int64}, A::Tuple{Int64,Int64})
     t = time()
-    map = parseFichier("data/" * fname)
+    map = parseFichierMap("data/" * fname)
     ((trajet, dist), nb_astar) = algo_AStar(map,D,A)
     
     println("Starting situation :")
@@ -75,7 +75,7 @@ end
 # Fonction résolvant le problème avec la méthode Glouton
 function algoGlouton(fname::String, D::Tuple{Int64,Int64}, A::Tuple{Int64,Int64})
     t = time()
-    map = parseFichier("data/" * fname)
+    map = parseFichierMap("data/" * fname)
     ((trajet, dist), nb_glouton) = algo_glouton(map,D,A)
     
     println("Starting situation :")

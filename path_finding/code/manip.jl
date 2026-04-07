@@ -1,13 +1,13 @@
 #=  Ce fichier contient des fonctions utiles à chaque méthode de path_finding
     Ecrit par Gomes Lana 
     et inspiration du cours de Recherche Operationnelle à l'université de Nantes 
-    pour la fonction parseFichier à l'aide du fichier SCP.jl
+    pour la fonction parseFichierMap à l'aide du fichier SCP.jl
 =# 
 
 #=  Fonction qui parse un fichier (au format de l'ORLib) afin d'en extraire une matrice utilisable pour la suite :
     Inspiré par le cours de Recherche Opérationnelle (fichier SCP) et adapté par Lana GOMES 
 =#
-function parseFichier(nomFichier::String)
+function parseFichierMap(nomFichier::String)
     # Ouverture d'un fichier en lecture
     f::IOStream = open(nomFichier,"r")
 
