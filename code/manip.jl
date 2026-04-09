@@ -104,6 +104,20 @@ function cout(map::Matrix{Char},u::Tuple{Int64,Int64})
     return -1 # Si c'est autre chose non-franchissable comme un mur '@' ou un arbre 'T' 
 end
 
+# Fonction permettant d'enlever un élèment d'une liste sans son indice
+function enlever(L_n_perm, u)
+    i = 1
+    while (i <= size(L_n_perm,1)) && (L_n_perm[i] != u)
+        i = i + 1
+    end
+    if i <= size(L_n_perm,1) && (L_n_perm[i] == u )
+        deleteat!(L_n_perm, i)
+    end
+    return L_n_perm
+end
+
+
+
 #=  Fonction qui affiche un trajet à la fois comme une suite 
     mais aussi le chemin représenté par des espaces ' ' sur la map
     Affiche si le trajet n'est pas possible si le trajet est vide
